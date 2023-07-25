@@ -19,7 +19,6 @@ export default function ThemeProviders({ children }) {
       secondary: {
         main: '#FF4081',
       },
-      // Add other light mode colors here
     },
   });
 
@@ -32,7 +31,6 @@ export default function ThemeProviders({ children }) {
       secondary: {
         main: '#FF4081',
       },
-      // Add other dark mode colors here
     },
   });
 

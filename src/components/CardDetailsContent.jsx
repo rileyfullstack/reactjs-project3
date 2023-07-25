@@ -5,7 +5,7 @@ export default function CardDetailsContent({ card }) {
   return (
     <Box sx={{ml: 5}}>
     <Box sx={{mb: 3}}>
-      <Typography variant='h4'>
+      <Typography variant='h5'>
         {card.description}
       </Typography>
     </Box>

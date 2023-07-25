@@ -1,3 +1,11 @@
+Thank you for your intention to run my site!
+Please note - the server folder is included within the application file (labeled server); Please take that folder out of the project file and run it separately.
+To run the server simply run 'node app' in a terminal that is in the server's route.
+
+# Explanation for the website is located within the 'about' page of the website
+
+To get to the about page, simply go to the /about/ url (for example: http://localhost:3000/about), or scroll down and click on the about button of the buttom navigation bar.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

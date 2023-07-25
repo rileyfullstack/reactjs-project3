@@ -2,7 +2,6 @@ Todo with ! before the line is a priority
 
 Check with tsach about the liked card problem (when searching for a card, if it is liked, it will not show up unless the page is refreshed)
 Make description box for edit/create card form bigger (Ask tsach about it)
-! Make an about page - should explain the website in it's whole
 ! Make a readme file for the project (explain the project and how to run it) 
 ! delete all junk code from the project (all the commented code and sandbox file)
 optional, if there is time - add a preview button to the edit/create card form

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -32,9 +32,14 @@ export default function CardActionBar({ id, handleDelete, user_id, handleLike })
     }
   };
 
+  const handleLocalLike = useCallback(async (id) => {
+    setIsLiked(prev => !prev);
+    await handleLike(id);
+  }, [id])
+
   useEffect( () => {
     handleSetIsLiked(id)
-  }, [])
+  }, [id])
 
   const handleDeleteCard = () => {
     handleDelete(id)
@@ -56,7 +61,7 @@ export default function CardActionBar({ id, handleDelete, user_id, handleLike })
           </Box>
           <Box>
               {user && <Box>
-              <IconButton aria-label="Favoraite Card" onClick={() => {handleLike(id)}}>
+              <IconButton aria-label="Favoraite Card" onClick={() => {handleLocalLike(id)}}>
                 <FavoriteIcon sx={isLiked ? {color: "red"} : {}}/>
               </IconButton>
               </Box>}

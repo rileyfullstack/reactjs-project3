@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import ROUTES from "../../../../routes/routesModel";
 import { useUser } from "../../../../users/providers/UserProvider";
 import useUsers from "../../../../users/hooks/useUsers";
-import MenuLink from "./MenuLink";
 import { Link } from "react-router-dom";
 
 const Menu = ({ isOpen, anchorEl, onClose }) => {
@@ -32,6 +31,11 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
       }}
     >
       <Box>
+        <Link to={ROUTES.CARDS} style={{ textDecoration:"none", display: { xs: "block", md: "none" } }}>
+            <MenuItem>
+              Home
+            </MenuItem>
+        </Link>
         <Link to={ROUTES.ABOUT} style={{ textDecoration:"none", display: { xs: "block", md: "none" } }}>
             <MenuItem>
               About
@@ -39,18 +43,19 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
         </Link>
         {user && (
           <>
-            <Link to={ROUTES.USER_PROFILE} style={{ textDecoration:"none" }}>
-            <MenuItem>
-              Profile
-            </MenuItem>  
+            <Link to={ROUTES.FAV_CARDS} style={{ textDecoration:"none", display: { xs: "block", md: "none" } }}>
+              <MenuItem>
+                Liked Cards
+              </MenuItem>
             </Link>
-            <Link to={ROUTES.EDIT_USER} style={{ textDecoration:"none"}}>
-            <MenuItem>
-              Edit profile
-            </MenuItem>
-            </Link>
-            <Link style={{ textDecoration:"none"}}>
-            <MenuItem onClick={onLogout}>Logout</MenuItem>
+            {user.isBusiness &&
+            <Link to={ROUTES.MY_CARDS} style={{ textDecoration:"none", display: { xs: "block", md: "none" } }}>
+              <MenuItem>
+                My Cards
+              </MenuItem>
+            </Link>}
+            <Link style={{ color: 'red'}}>
+              <MenuItem onClick={onLogout}>Logout</MenuItem>
             </Link>
           </>
         )}

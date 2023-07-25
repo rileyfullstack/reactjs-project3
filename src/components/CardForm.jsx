@@ -13,7 +13,6 @@ const CardForm = ({
   errors,
   onInputChange,
 }) => {
-  console.log("CardForm", data);
   return (
     <Container
     sx={{

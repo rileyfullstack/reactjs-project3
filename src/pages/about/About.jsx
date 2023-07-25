@@ -1,13 +1,13 @@
-import { Typography } from '@mui/material'
 import React from 'react'
-import AboutPicture from './aboutComponents/AboutPicture'
 import AboutTypography from './aboutComponents/AboutTypography'
+import ContentBox from '../../components/ContentBox'
 
 export default function About() {
   return (
     <>
-        <AboutTypography/>
-        <AboutPicture/>
+        <ContentBox>
+          <AboutTypography/>
+        </ContentBox>
     </>
   )
 }

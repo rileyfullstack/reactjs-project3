@@ -1,11 +1,7 @@
-import { Box, IconButton, Typography } from '@mui/material'
-import React from 'react'
-import LightModeIcon from '@mui/icons-material/LightMode';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import { Box, IconButton } from '@mui/material';
 import FlashlightOnIcon from '@mui/icons-material/FlashlightOn';
 import FlashlightOffIcon from '@mui/icons-material/FlashlightOff';
 import { useTheme } from '../../../providers/ThemeProviders';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useUser } from '../../../users/providers/UserProvider';
 import NotLogged from './NotLogged';
 import Logged from './Logged';
