@@ -8,9 +8,9 @@ export default function HeaderTextLogo() {
         display:{xs:"none", md:"inline-flex"}, 
         marginRight:2, 
         fontFamily:'fantasy',
-        }} variant="h4"
+        }} variant="h5"
       >
-        Bcard
+        CardNet
       </Typography>
     </>
   )

@@ -15,6 +15,8 @@ export default function Sandbox() {
             <NavItem to={"country-api-mapper"} label="country-api-mapper" sx={{color: 'black'}}/> 
             <NavItem to={"memo"} label="Memoization" sx={{color: 'black'}}/> 
             <NavItem to={"my-counter"} label="My counter" sx={{color: 'black'}}/> 
+            <NavItem to={"grand"} label="Grand Component" sx={{color: 'black'}}/>
+            <NavItem to={"form"} label="Form" sx={{color: 'black'}}/>
         </Toolbar>
       </AppBar>
       <Outlet/>

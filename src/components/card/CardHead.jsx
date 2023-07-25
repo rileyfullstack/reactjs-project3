@@ -1,7 +1,7 @@
 import { CardMedia } from '@mui/material'
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import imgType from '../models/imgType'
+import imgType from '../../cards/models/imgType'
 
 export default function CardHead({image}) {
   return (

@@ -1,38 +1,43 @@
-import { Typography } from '@mui/material';
-import { Container } from '@mui/system'
-import React, { useEffect } from 'react'
-import Cards from '../Cards'
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useCallback, useEffect } from 'react';
+import useCards from '../hooks/useCards';
+import CardsFeedback from '../../components/CardsFeedback';
+import FabAddCard from '../../components/FabAddCard';
+import { useUser } from '../../users/providers/UserProvider';
+import { Box, Typography } from '@mui/material';
 
 export default function CardsPage() {
 
-  const title = "title";
-  const subtitle = "subtitle";
-  const [cards, setCards] = useState([]);
+  const {cards, isLoading, error, handleGetCards, handleDeleteCard, handleLikeCard, } = useCards();
+  const { user } = useUser();
 
-  useEffect(() => {
-    handleGetCards()
+  const handleLike = useCallback(async (cardId) => {
+    await handleLikeCard(cardId);
+    handleGetCards();
   }, [])
 
-  const handleGetCards = async () =>{
-    try{
-      const { data } = await axios.get("https://localhost:8181/cards");
-      setCards(data);
-      console.log("Cards have been successfully retrived.");
-    } catch(err) {
-      console.log(err);
-    }
-  };
+  useEffect(() => {
+    handleGetCards();
+  }, []);
+
+  const handleDelete = async (Id) => {
+    await handleDeleteCard(Id);
+    handleGetCards();
+  }
 
   return (
-    <div>
-        <Container>
-          <Typography sx={{pt:'15px'}}>
-          </Typography>
-          <Cards cards={cards}/>
-        </Container>
-    </div>
+  <>
+    <Box sx={{pt: 3, pl: 2}}>
+      <Typography variant="h3" >Welcome to CardHub!</Typography>
+      <Typography variant="h4" >The best business card website you will ever lay your eyes upon.</Typography>
+    </Box>
+    <CardsFeedback 
+    cards={cards} 
+    isLoading={isLoading} 
+    error={error}
+    handleDelete={handleDelete}
+    handleLike={handleLike}
+    />
+    {user?.isBusiness && <FabAddCard />}
+    </>
   )
 }
-

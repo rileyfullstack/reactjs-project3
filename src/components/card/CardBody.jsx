@@ -11,11 +11,11 @@ import {
     Typography,
   } from "@mui/material";
 import { number, PropTypes, string } from 'prop-types';
-import addressType from '../models/addressType';
+import addressType from '../../cards/models/addressType';
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '../../routes/routesModel';
 
-export default function CardBody({ address, phoneNumber, businessNumber, title, subtitle, id }) {
+export default function CardBody({ address, phoneNumber, businessNumber, title, subtitle, id, description }) {
   const navigate = useNavigate();
   return (
     <>
@@ -32,8 +32,9 @@ export default function CardBody({ address, phoneNumber, businessNumber, title, 
             <Typography>
               <strong>Number:</strong> {businessNumber}
             </Typography>
-          </CardContent>
+            </CardContent>
         </CardActionArea>
+        <Divider variant="middle"/>
     </>
   )
 }

@@ -4,10 +4,11 @@ import CardHead from "./CardHead";
 import CardBody from "./CardBody";
 import CardActionBar from "./CardActionBar";
 import PropTypes from "prop-types";
-import cardType from "../models/cardType";
+import cardType from "../../cards/models/cardType";
 
-export default function BusinessCard({ card, handleCardActions }) {
-  const image = { url: "assets/images/image1.jpg", alt: "top image" };
+
+export default function BusinessCard({ card, handleDelete, handleLike }) {
+  const image = { url: card?.image?.url, alt: "top image" };
   return (
     <>
       <Card sx={{ 
@@ -23,8 +24,14 @@ export default function BusinessCard({ card, handleCardActions }) {
           title={card.title} 
           subtitle={card.subtitle}
           id={card._id}
+          description={card.description}
         />
-        <CardActionBar id={card._id} handleCardActions={handleCardActions}/>
+        <CardActionBar 
+        id={card._id} 
+        user_id={card.user_id}
+        handleDelete={handleDelete}
+        handleLike={handleLike}
+        />
       </Card>
     </>
   );

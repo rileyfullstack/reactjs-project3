@@ -12,6 +12,7 @@ const ROUTES = {
     USER_PROFILE: "/user-info",
     EDIT_USER: "/edit-user",
     SANDBOX: "/sandbox",
+    SEARCH: "/search",
     ERROR404: "*"
 };
 
