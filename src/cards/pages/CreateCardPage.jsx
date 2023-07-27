@@ -1,12 +1,10 @@
 import React from 'react'
 import useForm from '../../forms/hooks/useForm';
 import cardSchema from '../models/cardSchema';
-import initialEditCardForm from '../helpers/initialForms/initialEditCardForm';
 import useCards from '../hooks/useCards';
 import { useUser } from '../../users/providers/UserProvider';
-import { useNavigate } from 'react-router-dom';
 import CardForm from '../../components/CardForm';
-import initialErrors from '../helpers/initialForms/initialErrors';
+import initialCreateCardForm from '../helpers/initialForms/initialCreateCardForm';
 
 export default function CreateCardPage() {
 
@@ -14,7 +12,7 @@ export default function CreateCardPage() {
   const { user } = useUser();
 
   const {data, errors, ...rest} = useForm(
-    initialEditCardForm,
+    initialCreateCardForm,
     cardSchema,
     handleCreateCard,
   );
